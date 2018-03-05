@@ -135,7 +135,8 @@ function Scene(sceneText, options, nextScenes, shape1, shape2, r1, g1, b1, r2, g
     if(this.shape1 == "smallCircle") {
       for(var i = s1/2; i < width + s1/2; i+= s1) {
         for( var j = s1/2; j < width + s1/2; j+= s1) {
-          // var green = map(i, 0, width, this.g1, this.g2);
+          var green = map(i, 0, width, this.g1, this.g2);
+          console.log(green);
           fill(this.r1, this.g1, this.b1);
           ellipse(i, j, s1, s1);
           // }
