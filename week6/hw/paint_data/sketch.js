@@ -81,9 +81,6 @@ function savePaintData() {
   saveJSON(positionsToSave, 'paintData.json');
 }
 
-function loadPaintData() {
-  loadJSON(paintDataFile, parsePaintData);
-}
 
 
 // creates the new form of the drawing
@@ -95,3 +92,6 @@ function parsePaintData(data) {
   }
 }
 
+function loadPaintData() {
+  loadJSON(paintDataFile, paintmarks);
+}
