@@ -135,9 +135,7 @@ function Scene(sceneText, options, nextScenes, shape1, shape2, r1, g1, b1, r2, g
     if(this.shape1 == "smallCircle") {
       for(var i = s1/2; i < width + s1/2; i+= s1) {
         for( var j = s1/2; j < width + s1/2; j+= s1) {
-          var green = map(i, 0, width, this.g1, this.g2);
-          console.log(green);
-          fill(this.r1, this.g1, this.b1);
+          fill((this.r1 + i/ 5), (this.g1 + i/ 5), (this.b1 +j/5));
           ellipse(i, j, s1, s1);
           // }
         }
@@ -146,7 +144,7 @@ function Scene(sceneText, options, nextScenes, shape1, shape2, r1, g1, b1, r2, g
     if(this.shape1 == "bigCircle") {
       for(var i = s2/2; i < width + s2/2; i+= s2) {
         for( var j = s2/2; j < width + s2/2; j+= s2) {
-          fill(this.r1, this.g1, this.b1);
+          fill((this.r1 + i/ 5), (this.g1 + i/ 5), (this.b1 +j/5));
            ellipse(i, j, s2, s2);
         }
       }
@@ -155,7 +153,7 @@ function Scene(sceneText, options, nextScenes, shape1, shape2, r1, g1, b1, r2, g
     if (this.shape1 == "smallRect") {
       for(var i = s1/2; i < width + s1/2; i+= (s1+2)) {
         for( var j = s1/2; j < width + s1/2; j+= (s1+2)) {
-          fill(this.r1, this.g1, this.b1);
+          fill((this.r1 + i/ 5), (this.g1 + i/ 5), (this.b1 +j/5));
            rect(i, j, s1, s1);
         }
       }
@@ -163,7 +161,7 @@ function Scene(sceneText, options, nextScenes, shape1, shape2, r1, g1, b1, r2, g
     if (this.shape2 == "bigRect") {
       for(var i = s2/2; i < width + s2/2; i+= (s2 + 5)) {
         for( var j = s2/2; j < width + s2/2; j+= (s2 +5)) {
-          fill(this.r1, this.g1, this.b1);
+            fill((this.r1 + i/ 5), (this.g1 + i/ 5), (this.b1 +j/5));
            rect(i, j, s2, s2);
         }
       }
@@ -199,5 +197,3 @@ function keyPressed() {
     currentScene = newScene;
   }
 }
-
-
