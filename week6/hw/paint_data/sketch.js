@@ -93,5 +93,5 @@ function parsePaintData(data) {
 }
 
 function loadPaintData() {
-  loadJSON(paintDataFile, paintmarks);
+  loadJSON(paintDataFile, parsePaintData(paintDataFile));
 }

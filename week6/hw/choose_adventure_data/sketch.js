@@ -54,7 +54,6 @@ function draw() {
 
   fill(0);
   textSize(24);
-  // text("press the option number to advance to the indicated scene", 50, 700);
 }
 
 function CreateScenesFromData(data) {
@@ -76,14 +75,9 @@ function Scene(sceneText, options, nextScenes, shape1, shape2, r1, g1, b1, r2, g
   this.b2 = b2;
   this.sceneType = sceneType;
   this.display = function() {
- 
 
-    // for (var i = 0; i < options.length; i++) {
-    //   text('OPTION ' + (i + 1) + ': ' + this.options[i], 150, 200 + i * 50);
-    // }
-    //SHAPES 
 
-    //CHOICES
+// FOR CHOICE SCENES
 
     if(sceneType == "choice") {
       textAlign(CENTER);
@@ -130,14 +124,16 @@ function Scene(sceneText, options, nextScenes, shape1, shape2, r1, g1, b1, r2, g
     } 
   }
 
+//FOR FINAL PATTERN SCENES
   if (sceneType == "pattern") {
 
     if(this.shape1 == "smallCircle") {
       for(var i = s1/2; i < width + s1/2; i+= s1) {
         for( var j = s1/2; j < width + s1/2; j+= s1) {
+          var green = map(i, 0, width, this.g1, this.g2);
+          console.log(green);
           fill((this.r1 + i/ 5), (this.g1 + i/ 5), (this.b1 +j/5));
           ellipse(i, j, s1, s1);
-          // }
         }
       }
     }
@@ -181,18 +177,23 @@ function Scene(sceneText, options, nextScenes, shape1, shape2, r1, g1, b1, r2, g
 
   }
 
-
-
 }
 }
-  // }
-
-//PATTERNS 
-
+//HOW TO CHANGE SCENES
 
 function keyPressed() {
   var numberPressed = parseInt(key);
+  //using an if statement to conintue the scene
+  // var numberPressed;
+  // if (key == ' ') {
+  //   numberPressed = 1;
+  // }
+  // if (key = 'a') {
+  //   numberPressed = 2;
+  // }
+  //either 1 or 2
   var newScene = scenes[currentScene].nextScenes[numberPressed - 1];
+  //subract one from 1 or 2 so its 0 or 1 and use those numbers to call the index in those arrays
   if (newScene !== undefined) {
     currentScene = newScene;
   }
