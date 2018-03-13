@@ -1,10 +1,39 @@
+/*@font-face {font-family: 'Monospace821BT-Roman';src: url('fonts/webfonts/36067E_0_0.eot');src: url('fonts/webfonts/36067E_0_0.eot?#iefix') format('embedded-opentype'),url('fonts/webfonts/36067E_0_0.woff2') format('woff2'),url('fonts/webfonts/36067E_0_0.woff') format('woff'),url('fonts/webfonts/36067E_0_0.ttf') format('truetype');}
+ @font-face {font-family: 'Monospace821BT-Bold';src: url('fonts/webfonts/36067E_1_0.eot');src: url('fonts/webfonts/36067E_1_0.eot?#iefix') format('embedded-opentype'),url('fonts/webfonts/36067E_1_0.woff2') format('woff2'),url('fonts/webfonts/36067E_1_0.woff') format('woff'),url('fonts/webfonts/36067E_1_0.ttf') format('truetype');}
+ 
+*/
 .cnv {
-	margin-top: 80px;
+	margin-top: 5px;
 	margin-left: 5vw;
 }
 
 .toolbar{
-
+	font-size: 16px;
+	font-family: Monospace821BT-Bold;
+	margin-top: 10px;
+	float: left;
+	height: 18px;
+	margin-left: 4.5vw;
+	background-color: pink;
 }
 
-/*{padding: 50px; margin: 0;} */
+.GoudyTextMTStd { 
+	font-family: GoudyTextMTStd;
+	font-weight: normal;
+	font-style: normal;
+}
+.SlatePro-Bold { 
+	font-family: SlatePro-Bold;
+	font-weight: normal;
+	font-style: normal;
+}
+.SlatePro { 
+	font-family: SlatePro;
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+body{
+	overflow: hidden;
+}
