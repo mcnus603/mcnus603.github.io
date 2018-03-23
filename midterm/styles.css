@@ -1,7 +1,4 @@
-/*@font-face {font-family: 'Monospace821BT-Roman';src: url('fonts/webfonts/36067E_0_0.eot');src: url('fonts/webfonts/36067E_0_0.eot?#iefix') format('embedded-opentype'),url('fonts/webfonts/36067E_0_0.woff2') format('woff2'),url('fonts/webfonts/36067E_0_0.woff') format('woff'),url('fonts/webfonts/36067E_0_0.ttf') format('truetype');}
- @font-face {font-family: 'Monospace821BT-Bold';src: url('fonts/webfonts/36067E_1_0.eot');src: url('fonts/webfonts/36067E_1_0.eot?#iefix') format('embedded-opentype'),url('fonts/webfonts/36067E_1_0.woff2') format('woff2'),url('fonts/webfonts/36067E_1_0.woff') format('woff'),url('fonts/webfonts/36067E_1_0.ttf') format('truetype');}
- 
-*/
+
 .cnv {
 	margin-top: 5px;
 	margin-left: 5vw;
@@ -13,7 +10,7 @@
 	margin-top: 10px;
 	float: left;
 	height: 18px;
-	margin-left: 4.5vw;
+	margin-left: 5vw;
 }
 
 .GoudyTextMTStd { 
