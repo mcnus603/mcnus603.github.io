@@ -239,31 +239,21 @@ function drawOpinionBlockStates (anOpinion) {
   }
 }
 
-//https://creative-coding.decontextualize.com/text-and-type/
-
 function drawRegularOpinionBlocks(anOpinion, x, y) {
   var w;
   var h;
   var x; 
   var y;
-  var titleLength; 
-  var textLength; 
   var theTextSize;
   var leadingSize;
   var spaceSize;
   var margin = 10;
   var splitStrings = [];
-
   var textX;
   var textY;
-  var textW ;
-  var textH;
-
   var xOffset = 0;
   var yOffset = 0;
   var splitArray;
-
-
 
   if(anOpinion.theType == "post") {
     w = 250;
@@ -275,8 +265,11 @@ function drawRegularOpinionBlocks(anOpinion, x, y) {
     textLeading(leadingSize);
 
     //CALCULATING THE HEIGHT OF THE RECT
-    var h = calcHeight(anOpinion.theTitle, spaceSize, leadingSize, textSize, w, margin);
+    var titleH = calcHeight(anOpinion.theTitle, spaceSize, leadingSize, textSize, w, margin);
     rectMode(CENTER);
+
+    var threeMoreLines = 3 * leadingSize;
+    h = titleH + threeMoreLines;
     anOpinion.display(x, y, w, h);
 
     rectMode(CORNER);
@@ -287,28 +280,56 @@ function drawRegularOpinionBlocks(anOpinion, x, y) {
 
     //SPLIT ARRAY
     splitArray = splitString(anOpinion.theTitle);
+    var splitText = splitString(anOpinion.theText);
     fill(0);
 
-    //DISPLAY TEXT    
+    //DISPLAY TITLE    
     for(var j = 0; j < splitArray.length; j++) {
       var wordWidth = textWidth(splitArray[j]);
-
       if (xOffset >= (w - wordWidth - (2 * margin))) {
         xOffset = 0;
         yOffset += leadingSize; 
       }
-
       text(splitArray[j], (textX + xOffset), (textY + yOffset));
-
       if (xOffset >= (w - wordWidth - (2 * margin))) {
         xOffset = 0;
         yOffset += leadingSize; 
       } else {
         xOffset += wordWidth + spaceSize;
       }  
-    }  
-  } 
+    }
 
+    // DISPLAY TEXT
+    textFont(slateReg);
+    var bounds; 
+
+    if(splitText.length >= 50) {
+      bounds = 50;
+    } else {
+      bounds = splitText.length;
+    }
+
+    for(var j = 0; j < bounds; j++) {
+      var wordWidth = textWidth(splitText[j]);
+      if(j==0) {
+        xOffset = 0;
+        yOffset += leadingSize;
+      }
+      if (xOffset >= (w - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      }
+      if(yOffset < h - leadingSize) {
+        text(splitText[j], (textX + xOffset), (textY + yOffset));
+      }
+      if (xOffset >= (w - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      } else {
+        xOffset += wordWidth + spaceSize;
+      }
+    }
+  } 
   if (anOpinion.theType == "quote") {
     w = 350;
     textFont(goudy);
@@ -378,14 +399,11 @@ function drawRegularOpinionBlocks(anOpinion, x, y) {
     // TEXT DISPLAY
     for(var j = 0; j < splitArray.length; j++) {
       var wordWidth = textWidth(splitArray[j]);
-
       if (xOffset >= (w - wordWidth - (2 * margin))) {
         xOffset = 0;
         yOffset += leadingSize; 
       }
-
       text(splitArray[j], (textX + xOffset), (textY + yOffset));
-
       if (xOffset >= (w - wordWidth - (2 * margin))) {
         xOffset = 0;
         yOffset += leadingSize; 
@@ -415,7 +433,10 @@ function drawExpandedOpinionBlocks(anOpinion) {
   var margin = 10;
 
   if(anOpinion.theType == "post") {
+    // var titleHeight = calcHeight
 
+    var titleHeight = calcHeight(anOpinion.theTitle, spaceSize, leadingSize, textSize, w, margin);
+    var textHeight = calcHeight(anOpinion.theText, spaceSize, leadingSize, textSize, w, margin);
 
 
   }
@@ -448,11 +469,6 @@ function drawDraggingOpinionBlocks(anOpinion) {
   var removeY = y - (anOpinion.h/2) + margin;
   var expandX = x + (anOpinion.w/2) - margin;
   var expandY = y + (anOpinion.h/2) - margin;
-
-
-
-
-
 
 
    anOpinion.display(x, y, anOpinion.w, anOpinion.h);
