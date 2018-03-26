@@ -55,6 +55,7 @@ function draw() {
   startPage();
   toolbarCheck();
   checkDrag();
+  resetButton.style('display', 'inline-block');
 
   for (var i = 0; i < rectArray.length; i++) {
     drawOpinionBlockStates(rectArray[i]);
@@ -84,8 +85,8 @@ function sectionClicked () {
   //fill array with new opinionBlocks for that section 
   rectArray = [];
   for (var i = 0; i < contentData.content[newSection].length; i++) {
-    var x = random(150, width-150);
-    var y = random(100, height-100);
+    var x = random(150, width-175);
+    var y = random(100, height-150);
     var colorArrayLength = colorData.colors[newSection].length;
     var theTitle = contentData.content[newSection][i].title;
     var theText = contentData.content[newSection][i].text;
@@ -498,9 +499,9 @@ function drawExpandedOpinionBlocks(anOpinion) {
     splitArray = splitString(anOpinion.theTitle);
     var splitText = splitString(anOpinion.theText);
     fill(0);
-    textFont(monospaceBold);
 
-    //DISPLAY TITLE    
+    //DISPLAY TITLE   
+     textFont(monospaceBold); 
     for(var j = 0; j < splitArray.length; j++) {
       var wordWidth = textWidth(splitArray[j]);
       if (xOffset >= (w - wordWidth - (2 * margin))) {
@@ -541,24 +542,100 @@ function drawExpandedOpinionBlocks(anOpinion) {
   } 
 
   if(anOpinion.theType == "article") {
-    w = innerWidth;
-    h = innerWidth;
-    x = width/2;
+    resetButton.style('display', 'none');
+    w = innerWidth * .9;
+    h = innerHeight - 100;
+    x =width/2;
     y = height/2;
     margin = 15;
+
     rectMode(CENTER);
     anOpinion.display(x, y, w, h);
 
-    var columnmargin = 15;
-    var columnWidths = (w - (5 * 10))/5;
+    var columnmargin = 4;
+    var columnWidths = (w - (5 * columnmargin))/5;
 
-    //display title
+    var splitArray = splitString(anOpinion.theTitle);
+    var splitText = splitString(anOpinion.theText);
 
-    //display text
+    textFont(slateBold);
+    theTextSize = 24;
+    leadingSize = 26;
+    spaceSize = 6;
+    textSize(theTextSize);
+    textLeading(leadingSize);
+    fill(0);
 
+    textX =  margin;
+    textY = 2 * margin;
 
+    rectMode(CORNER);
+    // display title
+    for(var j = 0; j < splitArray.length; j++) {
+      var wordWidth = textWidth(splitArray[j]);
 
-    //possibly hide all other opinions
+      if (xOffset >= (columnWidths - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      }
+
+      text(splitArray[j], (textX + xOffset), (textY + yOffset));
+      if (xOffset >= (columnWidths - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      } else {
+        xOffset += wordWidth + spaceSize;
+    }
+  }
+
+    theTextSize = 11;
+    leadingSize = 13;
+    spaceSize = 4;
+    textSize(theTextSize);
+    textLeading(leadingSize);
+    fill(0);
+    textFont(slateReg);
+
+    for(var j = 0; j < splitText.length; j++) {
+      var wordWidth = textWidth(splitText[j]);
+    
+      if(j == 0) {
+        yOffset += (leadingSize * 2);
+        xOffset = 0;
+      }
+      
+      if (xOffset >= (columnWidths - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      }
+
+      if(yOffset >= (h - wordWidth - (2* margin))) {
+        textX += (columnWidths + columnmargin);
+        yOffset = 0; 
+        xOffset = 0;
+      }
+      
+      if (splitText[j] == '\n') {
+         yOffset +=  leadingSize; 
+         xOffset = 8;
+      }
+
+      text(splitText[j], (textX + xOffset), (textY + yOffset));
+      
+      if (xOffset >= (columnWidths - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      }  
+      if(splitText[j] != '\n') {
+        xOffset += wordWidth + spaceSize;
+      } 
+
+      if(yOffset >= h - wordWidth - (2 * margin)) {
+        textX += (columnWidths);
+        yOffset = 0; 
+        xOffset = 0;
+      }
+    }
   }
   rectMode(CENTER);
   var minX = x + (w/2) - margin;
@@ -616,6 +693,7 @@ function mouseClicked () {
     //Minimize button
     if(abs(anOpinion.minX - mouseX) < anOpinion.minW/2 && abs(anOpinion.minY - mouseY) < anOpinion.minH/2) {
       anOpinion.minimize();
+      resetButton.style('visibility', 'visibile');
     }
   }
 }
@@ -702,13 +780,6 @@ function moveForward (anOpinion, index) {
   reassignIndexNumbers();
 }
 
-
-
-
-
-//THINGS TO WORK ON
-//expanded 
-//getting the opinions to the front
 
 
 
