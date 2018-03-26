@@ -122,7 +122,7 @@ function startPage() {
   textSize(20);
   textFont(slateReg);
   textAlign(LEFT);
-  text("These are relevant, the helpful, the critical, the thoughtful, the serious, the angry, the ugly, the odd, the absurd, the ridiculous, the resentful, the unpopular, the out there love opinions. ", width/2, height/2 + 200, 350, 350);
+  text("These are the relevant, the helpful, the critical, the thoughtful, the serious, the angry, the ugly, the odd, the absurd, the ridiculous, the resentful, the unpopular, the out there love opinions. ", width/2, height/2 + 200, 350, 350);
 }
 
 //CHECK SECTIONS
