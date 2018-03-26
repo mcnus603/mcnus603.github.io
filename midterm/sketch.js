@@ -1,22 +1,21 @@
 // code 2
 // spring 2018
 // sarah mcnutt
-
 // midterm
 
 var contentData;
 var colorData;
 var rectArray = [];
-
 var sections = ["relationships", "weddings", "marriage", "romance", "sex", "gender", "lgbt", "about"];
 var toolbarArray = [];
-
 var previousSection; 
-
 var aCurrentDrag = false;
 var numDragged; 
-
 var expandImage;
+var resetButton;
+
+var canvasHeight;
+var canvasWidth;
 
 function preload() {
   contentData = loadJSON('content.json');
@@ -41,8 +40,12 @@ function setup() {
     toolbarArray.push(div);
   }
 
-  var canvasHeight = innerHeight - 100;
-  var cnv = createCanvas(innerWidth *.9, canvasHeight);
+  var div = createDiv('RESET'); 
+  div.addClass('reset');
+  resetButton = div;
+  canvasWidth = innerWidth * .9;
+  canvasHeight = innerHeight - 100;
+  var cnv = createCanvas(canvasWidth, canvasHeight);
   cnv.class('cnv');
   noStroke();
 }
@@ -52,25 +55,24 @@ function draw() {
   startPage();
   toolbarCheck();
   checkDrag();
-  // console.log(numDragged);
 
   for (var i = 0; i < rectArray.length; i++) {
     drawOpinionBlockStates(rectArray[i]);
   } 
 }
 
-//START PAGE FUNCTION 
+ //START PAGE FUNCTION 
 function sectionClicked () {
   var newSection = (this.html()).toLowerCase();
 
-//change styles for new section
+  //change styles for new section
   for(var i = 0; i < sections.length; i++) {
     if(sections[i] == newSection) {
       this.style('background-color', 'rgb('+colorData.colors[newSection][0].r + ',' + colorData.colors[newSection][0].g + ',' + colorData.colors[newSection][0].b)+ ')';
     }
-  }
-   
-//remove styles for the old section
+  } 
+
+  //remove styles for the old section
   for(var i = 0; i < toolbarArray.length; i++) {
     if((toolbarArray[i].html()).toLowerCase() == previousSection) {
       var thePreviousOne = toolbarArray[i];
@@ -79,7 +81,7 @@ function sectionClicked () {
   }
     previousSection = newSection;
 
-//fill array with new opinionBlocks for that section 
+  //fill array with new opinionBlocks for that section 
   rectArray = [];
   for (var i = 0; i < contentData.content[newSection].length; i++) {
     var x = random(150, width-150);
@@ -91,10 +93,21 @@ function sectionClicked () {
     var r = colorData.colors[newSection][i%colorArrayLength].r;
     var g = colorData.colors[newSection][i%colorArrayLength].g;
     var b = colorData.colors[newSection][i%colorArrayLength].b;
-    rectArray.push(new opinionBlock(x, y, theTitle, theText, theType, r, g, b));
+    rectArray.push(new opinionBlock(x, y, theTitle, theText, theType, r, g, b, i));
   }
   //fill with opinionButton Objects
+}
 
+function resetAll () {
+  for(var i = 0; i < rectArray.length; i++) {
+    rectArray[i].currentState = 'reset';
+  }
+}
+
+function fromResetTooReg () {
+    for(var i = 0; i < rectArray.length; i++) {
+    rectArray[i].currentState = 'regular';
+  }
 }
 
 function startPage() {
@@ -116,20 +129,22 @@ function toolbarCheck() {
   for (var i = 0; i < toolbarArray.length; i++) {
    toolbarArray[i].mousePressed(sectionClicked);
   }
-
+  resetButton.mousePressed(resetAll);
 }
 
 // OPINIONBLOCK CLASS
-function opinionBlock(x, y, theTitle, theText, theType, r, g, b) {
+function opinionBlock(x, y, theTitle, theText, theType, r, g, b, i) {
   this.r = r; 
   this.g = g; 
   this.b = b;
-  this.w = 250;
-  this.h = 150;
+  this.w;
+  this.h;
 
   this.currentState = 'regular';
   this.x = x;
   this.y = y;
+  this.ogX = x;
+  this.ogY = y;
 
   this.theTitle = theTitle;
   this.theText = theText;
@@ -149,6 +164,8 @@ function opinionBlock(x, y, theTitle, theText, theType, r, g, b) {
   this.minY;
   this.minW; 
   this.minH;
+
+  this.indexInArray = i;
 
   this.display = function(x, y, w, h) {
     this.x = x;
@@ -175,16 +192,16 @@ function opinionBlock(x, y, theTitle, theText, theType, r, g, b) {
   }
 
   this.expand = function() {
-    this.currentState = 'expanded';
+    this.currentState = 'expanding';
   
-  }
-
-  this.reset = function() {
-    this.aCurrentState = 'reset';
   }
 
   this.hide = function() {
     this.currentState = 'hidden';
+  }
+
+  this.minimize = function() {
+    this.currentState = 'regular';
   }
 
   this.removalButton = function(removeX, removeY) {
@@ -193,7 +210,7 @@ function opinionBlock(x, y, theTitle, theText, theType, r, g, b) {
     this.removeW = 14;
     this.removeH = 14;
 
-    textSize(12);
+    textSize(14);
     textFont(monospaceBold);
     text("x", this.removeX, this.removeY);
   }
@@ -201,18 +218,18 @@ function opinionBlock(x, y, theTitle, theText, theType, r, g, b) {
   this.expandButton = function(expandX, expandY) {
     this.expandX = expandX; 
     this.expandY = expandY;
-    this.expandW = 12; 
-    this.expandH = 12;
-    image(expandImage, this.expandX, this.expandY, 8, 8);
+    this.expandW = 14; 
+    this.expandH = 14;
+    image(expandImage, this.expandX, this.expandY, 10, 10);
   }
 
   this.minimizeButton = function(minX, minY) {
-    this.minX = minX;
-    this.minY = minY;
-    this.minW = 12; 
-    this.minH = 12;
+    this.minX = minX - 2;
+    this.minY = minY - 5;
+    this.minW = 14; 
+    this.minH = 14;
 
-    textSize(12);
+    textSize(14);
     textFont(monospaceBold);
     text("_", this.minX, this.minY);
   }
@@ -234,8 +251,14 @@ function drawOpinionBlockStates (anOpinion) {
       //display nothing
       break;
     case 'reset':
-      //draw regular opinionBlocks with og positions
+      drawRegularOpinionBlocks(anOpinion, anOpinion.ogX, anOpinion.ogY);
+      //Do I need to change this back to regular?
+      // fromResetTooReg();
       break;
+    case 'expanding':
+      moveForward(anOpinion, anOpinion.indexInArray);
+      anOpinion.currentState = 'expanded'
+      break;  
   }
 }
 
@@ -247,7 +270,7 @@ function drawRegularOpinionBlocks(anOpinion, x, y) {
   var theTextSize;
   var leadingSize;
   var spaceSize;
-  var margin = 10;
+  var margin = 15;
   var splitStrings = [];
   var textX;
   var textY;
@@ -274,7 +297,7 @@ function drawRegularOpinionBlocks(anOpinion, x, y) {
 
     rectMode(CORNER);
     textX = (anOpinion.x - w/2) + margin;
-    textY = (anOpinion.y - h/2) + (margin * 1.5);
+    textY = (anOpinion.y - h/2) + margin;
     textW = w - (2 * margin);
     textH = anOpinion.h - (2 * margin);
 
@@ -381,7 +404,7 @@ function drawRegularOpinionBlocks(anOpinion, x, y) {
     textSize(theTextSize);
     textLeading(leadingSize);
 
-//CALCULATING THE HEIGHT OF THE RECT
+  //CALCULATING THE HEIGHT OF THE RECT
     var h = calcHeight(anOpinion.theTitle, spaceSize, leadingSize, textSize, w, margin);
 
     rectMode(CENTER);
@@ -424,119 +447,176 @@ function drawRegularOpinionBlocks(anOpinion, x, y) {
   }
 }
 
-
 function drawExpandedOpinionBlocks(anOpinion) {
   var w; 
   var h; 
   var x = innerWidth/2;
   var y = innerHeight/2;
-  var margin = 10;
+  var margin = 15;
+  var spaceSize;
+  var theTextSize;
+  var leadingSize;
+  var xOffset = 0;
+  var yOffset = 0;
 
   if(anOpinion.theType == "post") {
     // var titleHeight = calcHeight
-
+    w = 250;
+    
+    theTextSize = 12;
+    leadingSize = 14;
+    spaceSize = 5;
+    textSize(theTextSize);
+    textLeading(leadingSize);
+    
+    textFont(monospaceBold);
     var titleHeight = calcHeight(anOpinion.theTitle, spaceSize, leadingSize, textSize, w, margin);
+    textFont(slateReg);
     var textHeight = calcHeight(anOpinion.theText, spaceSize, leadingSize, textSize, w, margin);
 
+    var maxHeight = canvasHeight * .8;
 
-  }
+    h = titleHeight+textHeight;
+    rectMode(CENTER);
+
+    if (h >= maxHeight) {
+      var area = w * h;
+      var newWidth = area/maxHeight;
+      w = newWidth;
+      h = maxHeight;
+      //calc width 
+    }
+
+    anOpinion.display(x, y, w, h);
+    rectMode(CORNER);
+    textX = (anOpinion.x - w/2) + margin;
+    textY = (anOpinion.y - h/2) + margin;
+    textW = w - (2 * margin);
+    textH = anOpinion.h - (2 * margin);
+
+    //SPLIT ARRAY
+    splitArray = splitString(anOpinion.theTitle);
+    var splitText = splitString(anOpinion.theText);
+    fill(0);
+    textFont(monospaceBold);
+
+    //DISPLAY TITLE    
+    for(var j = 0; j < splitArray.length; j++) {
+      var wordWidth = textWidth(splitArray[j]);
+      if (xOffset >= (w - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      }
+      text(splitArray[j], (textX + xOffset), (textY + yOffset));
+      if (xOffset >= (w - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      } else {
+        xOffset += wordWidth + spaceSize;
+      }  
+    }
+
+    // DISPLAY TEXT
+    textFont(slateReg);
+    for(var j = 0; j < splitText.length; j++) {
+      var wordWidth = textWidth(splitText[j]);
+      if(j==0) {
+        xOffset = 0;
+        yOffset += leadingSize;
+      }
+      if (xOffset >= (w - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      }
+      if(yOffset < h - leadingSize) {
+        text(splitText[j], (textX + xOffset), (textY + yOffset));
+      }
+      if (xOffset >= (w - wordWidth - (2 * margin))) {
+        xOffset = 0;
+        yOffset += leadingSize; 
+      } else {
+        xOffset += wordWidth + spaceSize;
+      }
+    }
+  } 
+
   if(anOpinion.theType == "article") {
     w = innerWidth;
-    h = innerHeight;
+    h = innerWidth;
+    x = width/2;
+    y = height/2;
+    margin = 15;
+    rectMode(CENTER);
+    anOpinion.display(x, y, w, h);
+
+    var columnmargin = 15;
+    var columnWidths = (w - (5 * 10))/5;
+
+    //display title
+
+    //display text
+
+
+
+    //possibly hide all other opinions
   }
-
-  anOpinion.display(x, y, w, h);
-
+  rectMode(CENTER);
   var minX = x + (w/2) - margin;
   var minY = y - (h/2) + margin;
 
   anOpinion.minimizeButton(minX, minY);
-
 }
-
-function drawDraggingOpinionBlocks(anOpinion) {
-  var x = mouseX;
-  var y = mouseY; 
-
-  var margin = 10;
-  var textX = mouseX + margin;
-  var textY = mouseY + margin;
-
-  var textW = anOpinion.w - margin;
-  var textH = anOpinion.h - margin;
-
-  var removeX = x + (anOpinion.w/2) - margin;
-  var removeY = y - (anOpinion.h/2) + margin;
-  var expandX = x + (anOpinion.w/2) - margin;
-  var expandY = y + (anOpinion.h/2) - margin;
-
-
-   anOpinion.display(x, y, anOpinion.w, anOpinion.h);
-
-    fill(0);
-  if(anOpinion.theType == "post") {
-    textSize(12);
-    textFont(monospaceBold);
-
-
-  } else if (anOpinion.theType == "quote") {
-    textFont(goudy);
-    textSize(42);
-  } else if (anOpinion.theType == "article") {
-    textFont(slateBold);
-    textSize(24);
-  }
-
-  text(anOpinion.theTitle, textX, textY, textW, textH);
-  textSize(12);
-  textFont(monospaceReg);
-
-  anOpinion.removalButton(removeX, removeY);
-  
-  if(anOpinion.theType !== "quote") {
-    anOpinion.expandButton(expandX, expandY); 
-  }
-}
-
 
 //MOUSE DRAG
 function mouseDragged() {
+  var onesBeingDragged = []; 
+  var nums = [];
+  var aDrag;
+  //check if the mouse is dragging something and figure out how many are being
   for (var i = 0; i < rectArray.length; i++) {
-
-  var anOpinion = rectArray[i];
-
-  if (abs(anOpinion.x - mouseX) < anOpinion.w/2 && abs(anOpinion.y - mouseY) < anOpinion.h/2) {
+    var anOpinion = rectArray[i];
+    if (abs(anOpinion.x - mouseX) < anOpinion.w/2 && abs(anOpinion.y - mouseY) < anOpinion.h/2 && anOpinion.currentState != 'expanded' && anOpinion.currentState != 'hidden') {
       if(aCurrentDrag == false || (aCurrentDrag == true && anOpinion.currentState == 'dragging')){
-        //if the mouse is also not where the expand and removal and min buttons are
-        anOpinion.dragged();
-        // var theIndex = i;
-        // console.log(anOpinion);
-        // rectArray.splice(rectArray[theIndex]);
-        // rectArray.push(rectArray[theIndex]);
-    }    
-  }      
+      aDrag = rectArray[i];
+      onesBeingDragged.push(aDrag); 
+      }
+    }
+  }  
 
-    // var theOneDragged = rectArray[i]; 
-    
-    // rectArray[i].dragged(mouseX, mouseY);  
-    // rectArray.splice(theOneDragged);
-    // rectArray.push(theOneDragged);
-    // console.log(i);
+  numDragged = onesBeingDragged.length;
+
+  if(numDragged == 1) {
+    aDrag.dragged();
+  } else if (numDragged > 1) {
+    for (var i = 0; i < onesBeingDragged.length; i++) {
+      num = onesBeingDragged[i].indexInArray;
+      nums.push(num);
+    }  
+
+      var mx = max(nums);
+      rectArray[mx].dragged();
+      aDrag =  rectArray[mx];
   }
+  // console.log(aDrag);
+  var theIndex = aDrag.indexInArray;
+  moveForward(aDrag, theIndex);
 }
 
 function mouseClicked () {
   for (var i = 0; i < rectArray.length; i++) {
     var anOpinion = rectArray[i]; 
-
+    //Remove button
     if(abs(anOpinion.removeX - mouseX) < anOpinion.removeW/2 && abs(anOpinion.removeY - mouseY) < anOpinion.removeH/2) {
       anOpinion.hide();
     }
-
+    //Expand button
     if(abs(anOpinion.expandX - mouseX) < anOpinion.expandW/2 && abs(anOpinion.expandY - mouseY) < anOpinion.expandH/2) {
       anOpinion.expand();
     }
-
+    //Minimize button
+    if(abs(anOpinion.minX - mouseX) < anOpinion.minW/2 && abs(anOpinion.minY - mouseY) < anOpinion.minH/2) {
+      anOpinion.minimize();
+    }
   }
 }
 
@@ -561,17 +641,6 @@ function checkDrag() {
       aCurrentDrag = true;
     } 
   } 
-}
-
-function checkObjDrag () {
-  var onesBeingDragged = []; 
-  for (var i = 0; i < rectArray.length; i++) {
-    if(rectArray[i].currentState == 'dragging') {
-      var aDrag = rectArray[i];
-      onesBeingDragged.push(aDrag); 
-    }
-    numDragged = onesBeingDragged.length;
-  }
 }
 
 // figuring out how to calculate the height of the box and the idea to split the strings came from the last example in this code titled "text metrics" https://creative-coding.decontextualize.com/text-and-type/
@@ -606,7 +675,7 @@ function calcHeight(theText, spaceSize, leading, textSize, w, margin) {
     if(leading > 20) {
     }
     
-    var h = (numLines * leading) + (margin * 2);
+    var h = (numLines * leading) + (margin * 2.5);
     return h;  
 }
 
@@ -621,23 +690,26 @@ function splitString(theText) {
   return splitArray;  
 }
 
+function reassignIndexNumbers() {
+  for (var i = 0; i < rectArray.length; i++) {
+    rectArray[i].indexInArray = i;
+  }
+}
+
+function moveForward (anOpinion, index) {
+  rectArray.splice(index, 1);
+  rectArray.push(anOpinion); 
+  reassignIndexNumbers();
+}
+
+
+
 
 
 //THINGS TO WORK ON
-//drag boolean
-//if I drag an opinion, how do I make sure it goes to the front 
-//get the isExpanded boolean to work
-//counting number of objects with a current drag bool as true
+//expanded 
+//getting the opinions to the front
 
-
-//HOW TO DEAL WITH MULSIPLE OBJECTS BEING DRAGGED
-//a locked array? 
-//a counter that tracks the number of objects currently being dragged and allows for only one to be dragged -- some way to tell which one is infront of the other -- i could tell this by the index of the object
-
-//calculating the height/width of the opnionBlock -- have to consider that certain words get returned to the next line 
-
-//TO DO NEXT
-//expand button
 
 
 

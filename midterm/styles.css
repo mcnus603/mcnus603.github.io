@@ -4,6 +4,18 @@
 	margin-left: 5vw;
 }
 
+.reset{
+	font-size: 12px;
+	font-family: Monospace821BT-Bold;
+	position: absolute;
+	right: 12vw;
+	top:50px;
+/*	margin-top: 40px;*/
+/*	float: left;*/
+	height: 18px;
+
+}
+
 .toolbar{
 	font-size: 16px;
 	font-family: Monospace821BT-Bold;
@@ -12,6 +24,7 @@
 	height: 18px;
 	margin-left: 5vw;
 }
+
 
 .GoudyTextMTStd { 
 	font-family: GoudyTextMTStd;
@@ -37,4 +50,7 @@ body{
 .toolbar:hover {
 	text-decoration: underline;
 
+}
+.reset:hover {
+	text-decoration: underline;
 }
