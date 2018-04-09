@@ -32,10 +32,10 @@ function draw() {
 }
 
 function askWordnik() {
-  loadJSON(noun1Url, gotNoun1, 'jsonp');
-  loadJSON(verbUrl, gotVerb, 'jsonp'); 
-  loadJSON(adjUrl, gotAdj, 'jsonp');
-  loadJSON(noun2Url, gotNoun2, 'jsonp');
+  loadJSON(noun1Url, gotNoun1);
+  loadJSON(verbUrl, gotVerb); 
+  loadJSON(adjUrl, gotAdj);
+  loadJSON(noun2Url, gotNoun2);
   background(0);
   drawText();
 }
