@@ -3,19 +3,23 @@
 	margin-left: 5vw;
 	height: auto;
 	background-color: white;
+/*	color: #d4422d;*/
 	position: fixed;
 	z-index: 200;
 }
 
 #content{
 	margin-top: 100px;
-	width: 70vw;
-	margin-left: 15vw;
+	width: 60vw;
+	margin-left: 20vw;
+/*	color: #602728;*/
 	position: absolute;
 	overflow-y: scroll;
-/*	background-color: red;*/
-	font-size: 35px;
+	line-height: 38px;
+
+	font-size: 38px;
 	font-family: didot;
+
 }
 
 .years{
@@ -23,7 +27,6 @@
 	margin-left: 8px;
 	font-size: 14px;
 	font-family: helvetica;
-
 }
 
 .years:hover {
