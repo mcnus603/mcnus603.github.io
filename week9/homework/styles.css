@@ -1,0 +1,40 @@
+#header {
+	width: 90vw;
+	margin-left: 5vw;
+	height: auto;
+	background-color: white;
+	position: fixed;
+	z-index: 200;
+}
+
+#content{
+	margin-top: 100px;
+	width: 70vw;
+	margin-left: 15vw;
+	position: absolute;
+	overflow-y: scroll;
+/*	background-color: red;*/
+	font-size: 35px;
+	font-family: didot;
+}
+
+.years{
+	float:left;
+	margin-left: 8px;
+	font-size: 14px;
+	font-family: helvetica;
+
+}
+
+.years:hover {
+	font-style: italic;
+	font-weight: 700;
+}
+
+#theTitle {
+font-family: didot;
+font-size: 20px;
+font-weight: 700;
+margin-bottom: 10px;
+width: 100vw;
+}
