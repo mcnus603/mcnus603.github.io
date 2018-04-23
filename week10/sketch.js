@@ -8,24 +8,8 @@ var renderer = new THREE.WebGLRenderer();
 var text = "hello";
 var years = document.getElementsByTagName("p");
 var theWords;
-
-console.log(years);
-
-function check() {
-	for (var i = 0; i < years.length; i++) {
-	var elem = years[i];
-	elem.onclick = function() {
-		var yr = 'y' +this.innerHTML;
-		console.log(yr);
-		theWords = allTheData.allTheWords.yr;
-		console.log(allTheData.allTheWords.yr);
-		}
-	}
-}
-
-function getTheWords(year) {
-	
-}
+var text = "hello";
+var loader = new THREE.FontLoader();
 
 //XMLHTTPRequest
 var request;
@@ -48,43 +32,67 @@ window.addEventListener('resize', function () {
 	camera.updateProjectionMatrix();
 });
 
-//CREATE GEOMETRY
+var font;
 
-var geometry = new THREE.BoxGeometry(1, 1, 2);
-var cubeMaterials = 
-[
-	new THREE.MeshLambertMaterial({color:0xdaa49a, side:THREE.DoubleSide}),
-	new THREE.MeshPhongMaterial({color:0x373f51, side:THREE.DoubleSide}),
-	new THREE.MeshLambertMaterial({color:0x58A4B0, side:THREE.DoubleSide}),
-	new THREE.MeshPhongMaterial({color:0xD8DBE2, side:THREE.DoubleSide}),
-	new THREE.MeshLambertMaterial({color:0xA9BCD0, side:THREE.DoubleSide}),
-	new THREE.MeshPhongMaterial({color:0xffffff, side:THREE.DoubleSide})
+//load font
+function loadFont() {
+ var loader = new THREE.FontLoader();
+ loader.load('franklinGothic.json', function (res) {
+   font = res;
+   createText();
+ });
+}
 
-];
-var material = new THREE.MeshFaceMaterial(cubeMaterials);
-var cube = new THREE.Mesh(geometry, material);
-
-scene.add(cube);
-cubes.push(cube);
-
-//move camera out a bit so its not on top of the cube
-camera.position.z = 5;
+var material = new THREE.MeshBasicMaterial({color: 0xffffff});
 var ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
-
 scene.add(ambientLight);
+
+//create text
+
+  function createText() {
+    textGeo = new THREE.TextGeometry( "text", {
+      font: font,
+      size: .8,
+      height: 1,
+      curveSegments:10,
+      weight: "normal",
+      bevelThickness:.2,
+      bevelSize:0.3,
+      bevelSegments:10,
+      bevelEnabled:false
+    });
+    textGeo.computeBoundingBox();
+    textGeo.computeVertexNormals();
+    var text = new THREE.Mesh(textGeo, material)
+    text.position.x = -textGeo.boundingBox.max.x/2;
+    text.castShadow = true;
+    scene.add(text)
+  }
+
+function check() {
+	for (var i = 0; i < years.length; i++) {
+	var elem = years[i];
+	elem.onclick = function() {
+		var yr = 'y' +this.innerHTML;
+		console.log(yr);
+		theWords = allTheData.allTheWords.yr;
+		console.log(allTheData.allTheWords.yr);
+		}
+	}
+}
+
+camera.position.z = 5;
 
 //render or animate loop
 var animate = function () {
 	check();
 	requestAnimationFrame(animate);
-	for (var i = 0; i < cubes.length; i ++) {
-		cubes[i].rotation.x += 0.01;
-		cubes[i].rotation.y += 0.01;
-	}
+	// textGeo.rotation.x += 0.01;
+	// textGeo.rotation.y +=0.01;
 	renderer.render(scene, camera);
 }
 
-
+loadFont();
 animate();
 
 
