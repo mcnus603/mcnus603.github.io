@@ -1,0 +1,17 @@
+NOTES
+
+3 things needed: 
+	-scene 
+	-camera
+	-rednerer
+
+Perspective Camera takes a few parameters: FOV, Aspect, Near, Far, XYZ coordinates 
+
+scene is what you're viewing what you have obj in-- what the user will see the world through
+
+perspective camera allows you to have depth
+
+parameters for camera: FOV (extent of the scene that's on display at a given moment) in degrees, aspect ratio, near and far clipping plane
+
+MeshBasicMaterial not effected by light 
+Different types of materials: Phong, Lambert

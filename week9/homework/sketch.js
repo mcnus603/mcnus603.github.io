@@ -3,13 +3,14 @@ var beginDay = "0101";
 var endDay = "1230";
 var headlines;
 var names= [];
-var images;
 var hits;
 var pageNums;
 var years = [];
 var theData;
 var url;
 var container;
+var counter = 0;
+var articles;
 
 function setup() {
 noCanvas();
@@ -23,7 +24,7 @@ function draw() {
 
 function drawHeader () {
 	for (var i = 1958; i<= 2018; i++) {
-		var year = i;
+		year = i;
 		var el = createDiv(year); 
 		years.push(el);
 		el.parent('header');
@@ -38,27 +39,48 @@ function yearCheck () {
 }
 
 function aYearWasClicked() {
-	var newYear = this.html();
-	year = newYear;
+	year = this.html();
 	container.html(" ");
-	url ="https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date="+year+beginDay+"&end_date="+year+endDay+"&q=Obituary&fl=type_of_material,headline,keywords,multimedia&api-key=fae3271db45140eeb2e5a90769781776"; 
+	url ="https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date="+year+beginDay+"&end_date="+year+endDay+"&q=Obituary&p="+counter"fl=type_of_material,headline,keywords,multimedia&api-key=fae3271db45140eeb2e5a90769781776"; 
 	getTheData(url, gotData);
+	console.log(url);
 }
 
 function getTheData() {
-	loadJSON(url, gotData);
+	loadJSON(url, populateArray);
 }
 
 function populateArray (data) {
-	theData = data;
-	var articles = data.response.docs;
+	if (counter < 1) {
+		theData = data;
+		pageNums = hits/10;
+		articles = data.response.docs;
+	}
+
+
+	for (var i = 0; i < articles.length; i++) {
+		var numKeywords = articles[i].keywords.length;
+		if(articles[i].type_of_material == 'Obituary' || articles[i].type_of_material == 'Obituary; Biography') {
+			var head = articles[i].headline.main;
+			container.html((head + "</br> <br/>"),  true);
+		}
+	}
+}
+
+function continueToLoad() {
+	setTimeout (1000, gotData);
 }
 
 function gotData(data) {
 	theData = data;
-	var articles = data.response.docs;
-	// hits = data.response.meta.hits;
-	// pageNums = hits/10;
+
+	if(counter < 1) {
+		hits = data.response.meta.hits;
+		pageNums = hits/10;
+		articles = data.response.docs;
+	} else {
+
+	}
 	for (var i = 0; i < articles.length; i++) {
 		var numKeywords = articles[i].keywords.length;
 		if(articles[i].type_of_material == 'Obituary' || articles[i].type_of_material == 'Obituary; Biography') {
@@ -71,9 +93,49 @@ function gotData(data) {
 function mousePressed () {
 		yearCheck();
 }
-//HOW TO DO THIS
-//create container div with scrolling thing and then change html when you change the year
+
+//IN CLASS NOTES
+
+//loadJSON does 2 things: 
+// - if you give it a web address, it does an HTML request
+//if you give it a directoty addres, it gets something from the file system 
 
 
-//Other things to do when did climate change, enviornment, plastic words like this start being used in the NYT
+//HTML Request
+//XMLHTTPRequest - js objects handles HTTP request
+
+// - GET --> 
+	// 404 - not found
+	// 200 - success 
+
+// - POST
+// - PUT
+
+//XML req --- events 
+
+//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+//GAME
+//low abstraction vs high abstraction 
+
+//canvas -> p5 canvas -> canvas game library 
+	// - collisions (what's hitting what? what's the response behavior)
+	// - physical simulation (box2D)
+	// - sprite (2D image that can be moved/scaled/rotated)
+	// - frame-animation control/behavior (save animation information and give animation instructions)
+	// (animation API) -  aplication programing interface (p5 tools)
+		//anim.play()
+		//anim.stop()
+		//anim.go()
+	//layers/tags 	
+
+
+
+
+
+
+
+
+
+
 
