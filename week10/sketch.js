@@ -46,9 +46,9 @@ function loadFont() {
 var material = new THREE.MeshBasicMaterial({color: 0xffffff});
 var ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
 scene.add(ambientLight);
+// var text;
 
-//create text
-
+//CREATE TEXT
   function createText() {
     textGeo = new THREE.TextGeometry( "text", {
       font: font,
@@ -63,36 +63,53 @@ scene.add(ambientLight);
     });
     textGeo.computeBoundingBox();
     textGeo.computeVertexNormals();
-    var text = new THREE.Mesh(textGeo, material)
+   	var text = new THREE.Mesh(textGeo, material)
     text.position.x = -textGeo.boundingBox.max.x/2;
     text.castShadow = true;
-    scene.add(text)
+    scene.add(text);
+
+  //    text.rotation.x = 90;
+		// text.rotation.y =30;
   }
 
+var yr;  
+
+//CHECK IF YEAR HAS BEEN PRESSED
 function check() {
 	for (var i = 0; i < years.length; i++) {
 	var elem = years[i];
 	elem.onclick = function() {
-		var yr = 'y' +this.innerHTML;
+		yr = ("y" + this.innerHTML);
 		console.log(yr);
-		theWords = allTheData.allTheWords.yr;
-		console.log(allTheData.allTheWords.yr);
+		theWords = allTheData.allTheWords;
+		console.log(theWords[yr]);
 		}
 	}
 }
 
 camera.position.z = 5;
 
-//render or animate loop
+//ANIMATION LOOP
 var animate = function () {
 	check();
 	requestAnimationFrame(animate);
-	// textGeo.rotation.x += 0.01;
-	// textGeo.rotation.y +=0.01;
+	createText();
 	renderer.render(scene, camera);
 }
 
 loadFont();
 animate();
+
+
+//FINAL NOTEs
+//2 topics: software design (decouplig logic and data, state machine, scene transistion, oop ARCHITECTURAL APPROACH, state machines, content, seperating logic and data, smart collision ownership) (higher and lower level abstraction)
+//make use of browser DOM
+//narrative, beginning, middle, end
+
+
+
+
+
+
 
 

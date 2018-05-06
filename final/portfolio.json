@@ -1,0 +1,61 @@
+{
+	"content": {
+		"work": [
+			{
+				"title": "Frankenstein",
+				"text": "",
+				"mainImage": "images/frankenstien.jpg",
+				"otherImages":[]
+			},
+			{
+				"title": "Out There Magazine Issue 3",
+				"text": "",
+				"mainImage": "images/outThereIssue3",
+				"otherImages":[]
+			},
+			{
+				"title": "Generative Typography",
+				"text": "",
+				"mainImage": "images/generativeType.jpg",
+				"otherImages":[]
+			},
+
+			{
+				"title": "Out There Magazine Issue 2",
+				"text": "",
+				"mainImage": "images/outThereIssue2.gif",
+				"otherImages":[]
+			},
+			{
+				"title": "Flocking",
+				"text": "",
+				"mainImage": "images/flocking.jpg",
+				"otherImages":[]
+			},
+			{
+				"title": "Out There Magazine Issue 1",
+				"text": "",
+				"mainImage": "images/outThereIssue1.gif",
+				"otherImages":[]
+			},
+			{
+				"title": "Screenprints",
+				"text": "",
+				"mainImage": "images/screenPrint.jpg",
+				"otherImages":[]
+			},
+			{
+				"title": "Poster Redesign",
+				"text": "",
+				"mainImage": "images/posterRedesign1",
+				"otherImages":[]
+			},
+			{
+				"title": "Understanding the Subprime Mortage Crisis",
+				"text": "",
+				"mainImage": "images/subprime.jpg",
+				"otherImages":[]
+			}
+		]
+	}
+}
