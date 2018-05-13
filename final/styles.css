@@ -1,28 +1,143 @@
-body{
+canvas{
+	position: absolute;
 	margin: 0;
 }
 
-canvas{
-/*	width: 100%;
-	height: 100%;*/
-	background-color: white;
+body{
+/*	background-color: black;*/
 }
+
+
 
 #pg1{
 	width: 100vw;
 	height: 100vh;
-	background-color: blue;
+
+	display: none;
 }
 
 #pg2 {
 	width: 100vw;
-	height: 200vh;
-	background-color: pink;
+
+	display: none;
+	position: relative;
 }
 
 #footer{
-	background: red;
+	background: white;
 	width: 100vw;
 	height: 40px;
+/*	position: absolute;*/
+	bottom: 0;
+/*	background: orange;*/
 }
 
+#header {
+	width: 100vw;
+	height: 40px;
+/*	background: lime;*/	
+	display: inline-block;
+}
+
+#entryContainer{
+	width: 90vw;
+	height: 92vh;
+	margin-left: 5vw;
+	display: none;
+	overflow-y: visible;
+}
+
+#aboutPg {
+	width: 90vw;
+	height: 92vh;
+	margin-left: 5vw;
+	display: none;
+	font-family: helvetica;
+	font-size: 36px;
+}
+
+#title{
+/*	background: violet;*/
+	margin-top: 36px;
+	display: none;
+	font-family: helvetica;
+	font-weight: 700;
+	font-size: 64px;
+	margin-top: 20px;
+}
+
+#slideshow {
+
+	width:100vw;
+	height: 400px;
+/*	background: green;*/
+	position: absolute;
+/*	margin-top: 20px;
+	display: none;*/
+
+}
+.otherImage{
+	width: 700px;
+	height: auto;
+	margin-top: 10px;
+/*	position: inherit;*/
+	display: none;
+
+}
+
+
+#text{
+	width: 600px;
+	display: none;
+	font-family: helvetica;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 24px;
+}
+
+.mainImage{
+	width: 550px;
+	height: auto;
+	display: none;
+	position: absolute;
+}
+
+#iconContainer{
+
+}
+
+.icon {
+	height: 15px;
+	width: auto;
+	margin-right: 10px;
+
+
+}
+.icon:hover{
+	opacity: .5;
+}
+
+#iconContainer {
+	width: 10vw;
+	height: 30px;
+	bottom: 0px;
+	right: 0px;
+	margin-left: 92vw;
+
+}
+
+.nav{
+	display: inline-block;
+	margin-right: 30px;
+	font-family: helvetica;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.nav:hover {
+	text-decoration: underline;
+}
+
+a{
+	color: black;
+}

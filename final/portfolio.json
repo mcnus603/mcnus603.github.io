@@ -1,59 +1,65 @@
 {
 	"content": {
 		"work": [
+				{
+				"title": "@POTUS",
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/@POTUS.jpg",
+				"otherImages":["images/@POTUS/01.jpg", "images/@POTUS/02.jpg", "images/@POTUS/013.jpg", "images/@POTUS/04.jpg", "images/@POTUS/05.jpg", "images/@POTUS/06.jpg", "images/@POTUS/07.jpg"]
+			},
 			{
 				"title": "Frankenstein",
-				"text": "",
-				"mainImage": "images/frankenstien.jpg",
-				"otherImages":[]
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/frankenstien.jpg",
+				"otherImages":["images/frankenstien/01.jpg", "images/frankenstien/02.jpg","images/frankenstien/03.jpg", "images/frankenstien/04.jpg","images/frankenstien/05.jpg", "images/frankenstien/06.jpg","images/frankenstien/07.jpg", "images/frankenstien/08.jpg"]
 			},
 			{
 				"title": "Out There Magazine Issue 3",
-				"text": "",
-				"mainImage": "images/outThereIssue3",
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/outThereIssue3.png",
 				"otherImages":[]
 			},
 			{
 				"title": "Generative Typography",
-				"text": "",
-				"mainImage": "images/generativeType.jpg",
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/generativeType.jpg",
 				"otherImages":[]
 			},
 
 			{
 				"title": "Out There Magazine Issue 2",
-				"text": "",
-				"mainImage": "images/outThereIssue2.gif",
-				"otherImages":[]
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/outThereIssue2.gif",
+				"otherImages":["images/outThereIssue2/outThere.gif", "images/outThereIssue2/01.jpg", "images/outThereIssue2/02.jpg","images/outThereIssue2/03.jpg", "images/outThereIssue2/04.jpg", "images/outThereIssue2/05.jpg", "images/outThereIssue2/06.jpg", "images/outThereIssue2/07.jpg"]
 			},
 			{
 				"title": "Flocking",
-				"text": "",
-				"mainImage": "images/flocking.jpg",
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/flocking.jpg",
 				"otherImages":[]
 			},
 			{
 				"title": "Out There Magazine Issue 1",
-				"text": "",
-				"mainImage": "images/outThereIssue1.gif",
-				"otherImages":[]
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/outThereIssue1.gif",
+				"otherImages":["images/outThereIssue1/01.jpg", "images/outThereIssue1/02.jpg", "images/outThereIssue1/03.jpg", "images/outThereIssue1/04.jpg", "images/outThereIssue1/05.jpg", "images/outThereIssue1/06.jpg", "images/outThereIssue1/07.jpg", "images/outThereIssue1/08.jpg", "images/outThereIssue1/09.jpg", "images/outThereIssue1/10.jpg", "images/outThereIssue1/11.jpg", "images/outThereIssue1/12.jpg", "images/outThereIssue1/13.jpg", "images/outThereIssue1/14.jpg"]
 			},
 			{
 				"title": "Screenprints",
-				"text": "",
-				"mainImage": "images/screenPrint.jpg",
-				"otherImages":[]
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/screenPrint.jpg",
+				"otherImages":["images/screenPrint/1.jpg", "images/screenPrint/2.jpg", "images/screenPrint/3.jpg", "images/screenPrint/4.jpg" ]
 			},
 			{
 				"title": "Poster Redesign",
-				"text": "",
-				"mainImage": "images/posterRedesign1",
-				"otherImages":[]
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/posterRedesign1.jpg",
+				"otherImages":["images/posterRedesign/poster1.jpg","images/posterRedesign/poster2.jpg","images/posterRedesign/poster3.jpg","images/posterRedesign/poster4.jpg"]
 			},
 			{
 				"title": "Understanding the Subprime Mortage Crisis",
-				"text": "",
-				"mainImage": "images/subprime.jpg",
+				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"mainImage": "images/mainImages/subprime.jpg",
 				"otherImages":[]
 			}
 		]
