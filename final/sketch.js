@@ -83,7 +83,7 @@ function aWorkClicked() {
 
 function displayHomepage() {
   //HELLO 
-  // displayHello(); 
+  displayHello(); 
   //WORK
   loadMainImages();
 }

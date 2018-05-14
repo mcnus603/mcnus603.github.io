@@ -62,7 +62,7 @@ body{
 	display: none;
 	font-family: helvetica;
 	font-weight: 700;
-	font-size: 64px;
+	font-size: 40px;
 	margin-top: 20px;
 }
 
@@ -92,11 +92,11 @@ body{
 	font-family: helvetica;
 	margin-top: 30px;
 	margin-bottom: 30px;
-	font-size: 24px;
+	font-size: 18px;
 }
 
 .mainImage{
-	width: 550px;
+	width: 400px;
 	height: auto;
 	display: none;
 	position: absolute;
@@ -140,4 +140,5 @@ body{
 
 a{
 	color: black;
+	text-decoration: none;
 }
