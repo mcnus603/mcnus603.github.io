@@ -148,3 +148,7 @@ a{
 	color: black;
 	text-decoration: none;
 }
+
+.mainImage:hover{
+	opacity: .8;
+}
