@@ -1,34 +1,29 @@
 {
 	"content": {
 		"work": [
-				{
-				"title": "@POTUS",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
-				"mainImage": "images/mainImages/@POTUS.jpg",
-				"otherImages":["images/@POTUS/01.jpg", "images/@POTUS/02.jpg", "images/@POTUS/013.jpg", "images/@POTUS/04.jpg", "images/@POTUS/05.jpg", "images/@POTUS/06.jpg", "images/@POTUS/07.jpg"]
-			},
+
 			{
 				"title": "Frankenstein",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "This design of the original 1818 Frankenstein text, plays on the variety of ways Mary Shelley was influenced in writing this text. Just like Frankenstein’s monster, the text itself is made up of fragmented pieces of inspiration from German horror stories to recent advances in science.",
 				"mainImage": "images/mainImages/frankenstien.jpg",
 				"otherImages":["images/frankenstien/01.jpg", "images/frankenstien/02.jpg","images/frankenstien/03.jpg", "images/frankenstien/04.jpg","images/frankenstien/05.jpg", "images/frankenstien/06.jpg","images/frankenstien/07.jpg", "images/frankenstien/08.jpg"]
 			},
 			{
 				"title": "Out There Magazine Issue 3",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "Out There Mag was a magazine designed to present unpopular opinions. This third and digital issue documents unpopular love and relationship opinions. It opinions sourced from reddit on topics like marriage, romance, sex, gender, and weddings.",
 				"mainImage": "images/mainImages/outThereIssue3.png",
 				"otherImages":["images/outThereIssue3/01.gif"]
 			},
 			{
 				"title": "Generative Typography",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "This project explores how type can be used as programatic form. An interface allows a user to input text and then creates responsive, generative typography where the user can control visual aspects.",
 				"mainImage": "images/mainImages/generativeType.jpg",
 				"otherImages":["images/gen/01.gif"]
 			},
 
 			{
 				"title": "Out There Magazine Issue 2",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "Out There Mag was a magazine designed to present unpopular opinions. This second issue explores the relevant, the helpful, the critical, the thoughtful, the serious, the angry, the ugly, the absurd, the unpopular, the out there cultural opinions. All content is sourced from reddit and underground culture websites. ",
 				"mainImage": "images/mainImages/outThereIssue2.gif",
 				"otherImages":["images/outThereIssue2/outThere.gif"]
 			},
@@ -40,7 +35,7 @@
 			},
 			{
 				"title": "Out There Magazine Issue 1",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "Out There Mag was a magazine designed to present unpopular opinions. This first issue explores the relevant, the helpful, the critical, the thoughtful, the serious, the angry, the ugly, the absurd, the unpopular, the out there political opinions. All content is sourced from reddit and alternative media outlets. ",
 				"mainImage": "images/mainImages/outThereIssue1.gif",
 				"otherImages":["images/outThereIssue1/01.jpg", "images/outThereIssue1/02.jpg", "images/outThereIssue1/03.jpg", "images/outThereIssue1/04.jpg", "images/outThereIssue1/05.jpg", "images/outThereIssue1/06.jpg", "images/outThereIssue1/07.jpg", "images/outThereIssue1/08.jpg", "images/outThereIssue1/09.jpg", "images/outThereIssue1/10.jpg", "images/outThereIssue1/11.jpg", "images/outThereIssue1/12.jpg", "images/outThereIssue1/13.jpg", "images/outThereIssue1/14.jpg"]
 			},
@@ -58,7 +53,7 @@
 			},
 			{
 				"title": "Understanding the Subprime Mortage Crisis",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "Using the text and images from the 2008 Subprime Mortgage Wikipedia article, this book translates information from a digital medium to print. Through visual design, his book aims to bring an inaccessible topic within reach through.",
 				"mainImage": "images/mainImages/subprime.jpg",
 				"otherImages":["images/subprime/01.gif"]
 			}

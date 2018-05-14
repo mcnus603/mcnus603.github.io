@@ -17,34 +17,61 @@ h1{
 
 h2{
 	font-size: 14px;
+	font-family: helvetica;
+
 }
 
 img{
 	background-color: white;
 	width: 30vw;
 	height: 30vw;
+	margin-left: 10vw;
 	position: absolute;
 	display: none;
+
 }
 
 #text{
-	width: 18vw;
+	width: 30vw;
 	height: 30vw;
 	position: absolute;
-	right: 0;
+	margin-left: 10vw;
 	font-family: helvetica;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 26px;
+	margin-top: 10px;
+	text-align: center;
 
+}
+
+#image{
+	width: 50vw;
+	height: 30vw;
 }
 
 #animation{
 	display: block;
 	width: 50vw;
-	height: 30vw;
+	height: 35vw;
 	position: relative;
 }
 
+h3{
+		text-align: center;
+		font-family: helvetica;
+}
 
+#arrow{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 7vw;
+	top: 32vw;
+	display: inline-block;
+}
+
+#arrow:hover{
+	opacity: .5;
+}
 
 
