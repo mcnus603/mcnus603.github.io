@@ -29,7 +29,7 @@
 			},
 			{
 				"title": "Flocking",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "This sketch explores the way that typographic can be programmatically visualized by using flocking behaviors in Processing.",
 				"mainImage": "images/mainImages/flocking.jpg",
 				"otherImages":["images/flock/01.gif"]
 			},
@@ -41,13 +41,13 @@
 			},
 			{
 				"title": "Screenprints",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "After learning the process of screenprinting, I experimented with different ways to use the medium.",
 				"mainImage": "images/mainImages/screenPrint.jpg",
 				"otherImages":["images/screenPrint/1.jpg", "images/screenPrint/2.jpg", "images/screenPrint/3.jpg", "images/screenPrint/4.jpg" ]
 			},
 			{
 				"title": "Poster Redesign",
-				"text": "Lorem ipsum dolor sit amet, idque dolor nominavi vix ut. Ne meis ubique scaevola sit, homero iracundia eum eu, paulo recusabo vix eu. Esse sonet dolore quo ex, ad esse dicam dolores pri, eu malis malorum nec. Omnium nostrud ut qui, eos velit lucilius accommodare et, ei vel deterruisset comprehensam.",
+				"text": "In this exercise we took spiritual German posers from the 1980’s and 1990’s and rearranged them to create different compositions. These posters were printed on the risograph. ",
 				"mainImage": "images/mainImages/posterRedesign1.jpg",
 				"otherImages":["images/posterRedesign/poster1.jpg","images/posterRedesign/poster2.jpg","images/posterRedesign/poster3.jpg","images/posterRedesign/poster4.jpg"]
 			},
