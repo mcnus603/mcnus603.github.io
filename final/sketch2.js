@@ -1,5 +1,6 @@
-//Get State Machine working 
-//parse all dom elements 
+//Sarah McNutt
+//Code 2 final
+
 //DOM elements
 var pg1; 
 var pg2;
@@ -30,40 +31,42 @@ var textEntries = [];
 var otherImages = [];
 var titleDivs;
 
-var currentSection = "home";
-
 //THREE.js varriables
 var geometries = [];
 var materials = [];
 var textGeo;
 var textArray = [];
 
+var currentSection = "home";
+
 
 //XML HTTP request
 var request;
 request = new XMLHttpRequest();
 request.open('GET', 'portfolio.json', true);
+
 //load into arrays
 request.onload = function(event) {
 	allTheData = JSON.parse(event.target.responseText);
 	for (var i =0; i< allTheData.content.work.length; i++) {
+
 		var theImage = allTheData.content.work[i].mainImage;
-		images.push(theImage);
 		var theTitle = allTheData.content.work[i].title;
-		titles.push(theTitle);
 		var theText = allTheData.content.work[i].text;
-		textEntries.push(theText);
 		var sImages = [];
 		sImages = allTheData.content.work[i].otherImages;
+
+		images.push(theImage);
+		titles.push(theTitle);
+		textEntries.push(theText);		
 		otherImages.push(sImages);
 	}
-
 	parseDOMElements();
 	eventListnersToDOM();
 	drawContent();
 	displayHello();
-
 }
+
 request.send();
 
 
@@ -71,10 +74,8 @@ request.send();
 function parseDOMElements () {
 	pg1 = document.getElementById('pg1');
 	homeElements.push(pg1);
-
 	pg2 = document.getElementById('pg2');
 	homeElements.push(pg2);
-	 // header = document.getElementById('header');
 
 	footer = document.getElementById('footer');
 	 
@@ -96,11 +97,8 @@ function parseDOMElements () {
 
 	aboutPg = document.getElementById('aboutPg');
 
-
 	loadMainImages();
 	loadOtherImages();
-	
-
 }
 
 function loadMainImages() {  

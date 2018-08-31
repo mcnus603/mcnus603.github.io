@@ -1,3 +1,6 @@
+
+//MIDTERM WRITTEN IN P5
+
 // code 2
 // spring 2018
 // sarah mcnutt
@@ -25,7 +28,6 @@ function preload() {
   slateBold = loadFont('fonts/webfonts/36058A_1_0.ttf'); 
   monospaceBold = loadFont('fonts/webfonts/36067E_1_0.ttf'); 
   monospaceReg = loadFont('fonts/webfonts/36067E_0_0.ttf'); 
-
   expandImage = loadImage('images/expand.png')
 }
 
@@ -781,6 +783,8 @@ function moveForward (anOpinion, index) {
 }
 
 
-
+//tight iteninerary, complicated, logisitical
+//something carter and I had been 
+//maybe we could go on a family vacation, cus patrick said he wouldnt mind going 
 
 
